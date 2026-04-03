@@ -1,13 +1,16 @@
-# Build stage
+# Step 1: Build Stage
 FROM node:18-alpine as build
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+# Peer dependencies issues ko bypass karne ke liye
+RUN npm install --legacy-peer-deps 
 COPY . .
-RUN npm run build
+# Warnings ko error na banane ke liye CI=false
+RUN CI=false npm run build 
 
-# Production stage
+# Step 2: Production Stage
 FROM nginx:stable-alpine
+# Vite default dist folder use karta hai, wahi copy hoga
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
