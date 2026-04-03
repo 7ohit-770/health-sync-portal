@@ -1,0 +1,362 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>New Consultation | The Clinical Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "primary": "#352063",
+                        "on-tertiary-container": "#b5b0be",
+                        "on-tertiary-fixed-variant": "#484551",
+                        "on-error": "#ffffff",
+                        "background": "#fcf9f8",
+                        "outline": "#7a7581",
+                        "on-surface-variant": "#494550",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#4f3b7d",
+                        "on-surface": "#1b1b1b",
+                        "tertiary-container": "#46434e",
+                        "surface-tint": "#675397",
+                        "secondary-fixed": "#e9ddff",
+                        "tertiary": "#2f2d38",
+                        "surface-bright": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "secondary": "#675396",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "surface-dim": "#dcd9d9",
+                        "inverse-surface": "#313030",
+                        "primary-fixed-dim": "#d0bcff",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "secondary-container": "#c9b2fe",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-container": "#bca6f1",
+                        "inverse-primary": "#d0bcff",
+                        "on-secondary-fixed": "#220a4f",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#cbc4d1",
+                        "surface-container-low": "#f6f3f2",
+                        "tertiary-fixed": "#e6e0ef",
+                        "surface-container": "#f0eded",
+                        "on-background": "#1b1b1b",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-container": "#4c387b",
+                        "on-tertiary-fixed": "#1c1a25",
+                        "tertiary-fixed-dim": "#c9c4d3",
+                        "on-primary-fixed-variant": "#4f3b7e",
+                        "on-secondary-container": "#554183",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#e9ddff",
+                        "on-primary-fixed": "#220950",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-manrope { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-40 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl flex justify-between items-center w-full px-8 py-3">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-violet-900 dark:text-violet-100">dr.deans</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-manrope text-sm font-medium text-slate-500 hover:text-violet-700 transition-colors duration-200" href="/index.html">Dashboard</a>
+<a class="font-manrope text-sm font-medium text-slate-500 hover:text-violet-700 transition-colors duration-200" href="/patient.html">Patient Records</a>
+<a class="font-manrope text-sm font-medium text-violet-900 font-bold border-b-2 border-violet-900" href="/consultation.html">Appointments</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors duration-200 text-violet-900">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors duration-200 text-violet-900">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Dr. Dean's profile" class="w-full h-full object-cover" data-alt="Professional headshot of a friendly doctor with short hair and clinical attire in a brightly lit modern office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMCGqabWXPOlJrEcPNWoLjv2CZbNHJnRO747hJte6xxuJQ14rUrcYHys3lj_fzG2QWnJMkYvO_hoR65jCHuauI20S4bjZ8VLqItLkey5oZZzDM7spe3b9WY3nPXKaO0vx0NuObCsqFTNoAq31lAWeS6uwJhfO4EsP_cSnzFQxbIps8hGlPKFW-2tTzQIzbUU9RMxigvJs4OwyeNpEooSvULNOw3GqWQy1WL1JeaUI4EUMtgt83wDKhXMEXxMBbrrtGESXXOVq-">
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="h-screen w-72 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 flex flex-col h-full py-6 hidden lg:flex">
+<div class="px-8 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<p class="font-manrope font-bold text-violet-800 dark:text-violet-300">Precision Care</p>
+<p class="text-xs text-slate-500">The Clinical Curator</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-6 py-3 text-slate-600 dark:text-slate-400 font-manrope text-base hover:bg-violet-50 transition-all duration-300 hover:translate-x-1" href="/index.html">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-600 dark:text-slate-400 font-manrope text-base hover:bg-violet-50 transition-all duration-300 hover:translate-x-1" href="/patient.html">
+<span class="material-symbols-outlined">folder_shared</span> Patient Records
+                </a>
+<a class="flex items-center gap-4 px-6 py-3 bg-violet-100 dark:bg-violet-900/30 text-violet-900 dark:text-violet-100 font-semibold rounded-r-full font-manrope text-base" href="/consultation.html">
+<span class="material-symbols-outlined">event</span> Appointments
+                </a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-600 dark:text-slate-400 font-manrope text-base hover:bg-violet-50 transition-all duration-300 hover:translate-x-1" href="/integrations.html">
+<span class="material-symbols-outlined">hub</span> Integration Hub
+                </a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-600 dark:text-slate-400 font-manrope text-base hover:bg-violet-50 transition-all duration-300 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+</nav>
+<div class="px-6 py-4">
+<a class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:text-error transition-colors font-manrope text-base" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-72 min-h-screen px-8 py-10 max-w-6xl mx-auto">
+<!-- Header Section -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex gap-2 text-sm text-tertiary mb-2">
+<span>Appointments</span>
+<span>/</span>
+<span class="text-primary font-semibold">New Consultation</span>
+</nav>
+<h1 class="text-4xl font-extrabold font-manrope text-on-surface tracking-tight">New Consultation</h1>
+<p class="text-tertiary mt-2">Initialize a clinical encounter and record patient metrics.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 rounded-xl text-primary font-semibold bg-surface-container-highest hover:bg-surface-container-high transition-colors">
+                        Save Draft
+                    </button>
+<button class="px-8 py-2.5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                        Start Consultation
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout for Form -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Section 1: Patient Selection & Visit Info -->
+<div class="md:col-span-8 flex flex-col gap-8">
+<!-- Patient Selection Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">person_search</span>
+<h2 class="text-xl font-bold font-manrope">Patient Selection</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="relative">
+<label class="block text-xs font-bold uppercase tracking-wider text-tertiary mb-2">Search Existing Patient</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-md py-3 pl-11 pr-4 focus:ring-2 focus:ring-primary transition-all" placeholder="e.g. Elena Richardson" type="text">
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline">search</span>
+</div>
+</div>
+<div class="flex items-end">
+<button class="w-full py-3 border-2 border-dashed border-outline-variant rounded-md text-tertiary font-medium hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">person_add</span> Create New Patient
+                                </button>
+</div>
+</div>
+</div>
+<!-- Visit Information Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">clinical_notes</span>
+<h2 class="text-xl font-bold font-manrope">Visit Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-tertiary mb-2">Reason for Visit</label>
+<select class="w-full bg-surface-container-low border-none rounded-md py-3 px-4 focus:ring-2 focus:ring-primary transition-all">
+<option>Select preset...</option>
+<option selected="">Routine Check-up</option>
+<option>Follow-up</option>
+<option>Acute Issue</option>
+<option>Chronic Management</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-tertiary mb-2">Urgency Level</label>
+<div class="flex gap-2">
+<button class="flex-1 py-3 rounded-md bg-surface-container text-tertiary text-sm font-semibold hover:bg-green-100 hover:text-green-800 transition-colors">Low</button>
+<button class="flex-1 py-3 rounded-md bg-secondary-container text-on-secondary-container text-sm font-bold ring-2 ring-primary">Normal</button>
+<button class="flex-1 py-3 rounded-md bg-surface-container text-tertiary text-sm font-semibold hover:bg-red-100 hover:text-red-800 transition-colors">Urgent</button>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-tertiary mb-2">Consultation Type</label>
+<div class="grid grid-cols-2 gap-4">
+<label class="relative flex items-center p-4 border-2 border-primary bg-primary/5 rounded-xl cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary" name="consult_type" type="radio">
+<div class="ml-4">
+<p class="font-bold text-primary">In-Person</p>
+<p class="text-xs text-tertiary">Physical examination required</p>
+</div>
+</label>
+<label class="relative flex items-center p-4 border-2 border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="text-primary focus:ring-primary" name="consult_type" type="radio">
+<div class="ml-4">
+<p class="font-bold text-on-surface">Telehealth</p>
+<p class="text-xs text-tertiary">Video conference</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Clinical Notes Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+<h2 class="text-xl font-bold font-manrope">Clinical Notes</h2>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-tertiary mb-2">HPI (History of Present Illness)</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary transition-all resize-none" placeholder="Document the patient's symptoms and history..." rows="4"></textarea>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-tertiary mb-2">Physical Examination</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary transition-all resize-none" placeholder="Notes on physical inspection and diagnostic tests..." rows="4"></textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Sections -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<!-- Vitals Capture -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">vital_signs</span>
+<h2 class="text-xl font-bold font-manrope">Vitals</h2>
+</div>
+<span class="text-[10px] bg-tertiary-fixed px-2 py-1 rounded text-on-tertiary-fixed font-bold">LAST: 10m ago</span>
+</div>
+<div class="space-y-4">
+<div class="group">
+<label class="flex justify-between text-xs font-bold text-tertiary mb-1">
+                                    BP (mmHg)
+                                    <span class="text-secondary font-normal">120/80 normal</span>
+</label>
+<div class="flex gap-2">
+<input class="w-full bg-surface-container-low border-none rounded-md py-2 px-3 text-center focus:ring-2 focus:ring-primary" placeholder="120" type="text">
+<span class="text-outline-variant self-center">/</span>
+<input class="w-full bg-surface-container-low border-none rounded-md py-2 px-3 text-center focus:ring-2 focus:ring-primary" placeholder="80" type="text">
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-xs font-bold text-tertiary mb-1 block">HR (bpm)</label>
+<input class="w-full bg-surface-container-low border-none rounded-md py-2 px-3 focus:ring-2 focus:ring-primary" placeholder="72" type="text">
+</div>
+<div>
+<label class="text-xs font-bold text-tertiary mb-1 block">Temp (°C)</label>
+<input class="w-full bg-surface-container-low border-none rounded-md py-2 px-3 focus:ring-2 focus:ring-primary" placeholder="36.6" type="text">
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-xs font-bold text-tertiary mb-1 block">SpO2 (%)</label>
+<input class="w-full bg-surface-container-low border-none rounded-md py-2 px-3 focus:ring-2 focus:ring-primary" placeholder="98" type="text">
+</div>
+<div>
+<label class="text-xs font-bold text-tertiary mb-1 block">Weight (kg)</label>
+<input class="w-full bg-surface-container-low border-none rounded-md py-2 px-3 focus:ring-2 focus:ring-primary" placeholder="70" type="text">
+</div>
+</div>
+</div>
+</div>
+<!-- Treatment Plan Card -->
+<div class="bg-primary text-on-primary p-8 rounded-xl shadow-lg">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined">prescriptions</span>
+<h2 class="text-xl font-bold font-manrope">Treatment Plan</h2>
+</div>
+<div class="space-y-6">
+<!-- Prescriptions -->
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-on-primary-container mb-2">Prescriptions</label>
+<div class="relative">
+<input class="w-full bg-primary-container border-none rounded-lg py-2 pl-10 pr-4 text-sm placeholder:text-on-tertiary-container focus:ring-2 focus:ring-on-primary-container" placeholder="Search medication..." type="text">
+<span class="material-symbols-outlined absolute left-3 top-2 text-on-tertiary-container text-xl">search</span>
+</div>
+<div class="mt-3 flex flex-wrap gap-2">
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                                        Lisinopril 10mg <span class="material-symbols-outlined text-sm">close</span>
+</div>
+</div>
+</div>
+<!-- Lab Orders -->
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-on-primary-container mb-2">Laboratory Orders</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 bg-primary-container/40 p-2 rounded-lg cursor-pointer">
+<input class="rounded text-primary focus:ring-0" type="checkbox">
+<span class="text-sm">CBC with Differential</span>
+</label>
+<label class="flex items-center gap-3 bg-primary-container/40 p-2 rounded-lg cursor-pointer">
+<input class="rounded text-primary focus:ring-0" type="checkbox">
+<span class="text-sm">Lipid Profile</span>
+</label>
+</div>
+</div>
+<!-- Follow-up -->
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-on-primary-container mb-2">Follow-up Instructions</label>
+<textarea class="w-full bg-primary-container border-none rounded-lg py-2 px-4 text-sm placeholder:text-on-tertiary-container focus:ring-2 focus:ring-on-primary-container resize-none" placeholder="Next steps for the patient..." rows="2"></textarea>
+</div>
+</div>
+</div>
+<!-- Visual Summary Graphic -->
+<div class="relative h-48 rounded-xl overflow-hidden group">
+<img alt="Clinical environment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Blurred background of a clean modern medical clinic with soft blue and white tones, high-end medical equipment visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG3HwMJT2rHYFzbK6yzh9xA_Kajava8fv71uX5a1vEX8JVkLuRg35Ea_jVBgS_z0GRai3nMGP0lF4SM7TVlaNodPl9qWKTqHDHqQU8RGhycH6NoO50UhYUGXk7nVkYOgh3xuZZzed40n3TBxfrAOhHoFrlNLsGbGkfXKUVVxOLJO61h5Xn12VqN02BQa5115SClcDr2-oKXIlVbsUa2fx5Xgsh0OpGn6KI7Vvpv6JeEC2YE9McJg41k6n2rIGA90YypzpwbEd_">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+<p class="text-white text-sm font-medium italic">"Data integrity ensures precision in patient outcomes."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Mobile Sticky Footer Action (Simulated) -->
+<div class="md:hidden mt-10 space-y-4">
+<button class="w-full py-4 rounded-xl bg-primary text-on-primary font-bold">Start Consultation</button>
+<button class="w-full py-4 rounded-xl bg-surface-container-highest text-primary font-bold">Save Draft</button>
+</div>
+<footer class="mt-20 py-8 border-t border-surface-container-high text-center">
+<p class="text-tertiary text-sm">© 2024 dr.deans Medical Group. Powered by The Clinical Curator System.</p>
+</footer>
+</main>
+</div>
+</body></html>
